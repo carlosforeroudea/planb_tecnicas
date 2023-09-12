@@ -1,10 +1,10 @@
 package front;
 
-import process.bank_process;
+import process.BankProcess;
 
 public class init {
     public static void main(String[] args){
-        bank_process b = new bank_process();
+        BankProcess b = new BankProcess();
         new Login().setVisible(true);
 
     }
