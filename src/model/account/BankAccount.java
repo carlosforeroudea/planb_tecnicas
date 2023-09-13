@@ -1,27 +1,35 @@
 package model.account;
 
-import model.data.Registry;
-import model.data.Status;
-import model.data.Transaction;
+import model.entity.Person;
+import model.util.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
-public class BankAccount {
-    public final int ID = 0;
-    public final User owner;
+public class BankAccount<Entity extends Person> {
+    public static final int ID_MAX_SIZE = 10;
+    public static int PREVIOUS_USER_ID = 0;
+    public static int ACCOUNT_ID_COUNTER = 0;
+
+    public final int AccountID;
+    public final User<Entity> owner;
 
     protected int overdraftLimit = 0;
     protected int transactionLimit = 0;
     protected int withdrawLimit = 0;
+    protected int debt = 0;
 
     protected int balance = 0;
     protected int transactionsThisDay = 0;
 
+    protected int score = 100;
+
     protected List<Registry<Transaction, Object, Status>> history = new ArrayList<>();
 
-    public BankAccount(User owner) {
+    public BankAccount(User<Entity> owner, AccountType type) {
         this.owner = owner;
+        this.AccountID = generateAccountID(type);
     }
 
     public Object doTransaction(Transaction transaction, int value){
@@ -63,4 +71,52 @@ public class BankAccount {
     public List<Registry<Transaction, Object, Status>> getHistory(){
         return this.history;
     }
+
+    public int getScore(){
+        return score;
+    }
+
+    protected void updateScore(){
+        
+    }
+
+
+    protected static int generateUserID(PersonType type){
+        PREVIOUS_USER_ID++;
+
+        int newID = type.getValue();
+        newID *= 10;
+
+        if(type == PersonType.EMPLOYEE)
+            newID += EmployeeRole.CONSULTANT.ordinal() + 1;
+
+        newID *= (int) Math.pow(10, ID_MAX_SIZE - 2);
+        newID += PREVIOUS_USER_ID;
+
+        return newID;
+    }
+    protected static int generateAccountID(AccountType type){
+        ACCOUNT_ID_COUNTER++;
+
+        int newID = type.getValue();
+
+        newID *= (int) Math.pow(10, ID_MAX_SIZE);
+        newID += ACCOUNT_ID_COUNTER;
+
+        return newID;
+    }
+
+    public static <E extends Person> BankAccount<E> create(User<E> owner, AccountType type){
+        return new BankAccount<>(owner, type);
+    }
+    public static <E extends Person> BankAccount<E> create(E entity, AccountType accountType){
+        PersonType type = PersonType.byType(entity.getClass());
+        int ownerID = BankAccount.generateUserID(type);
+        User<E> newOwner = new User<>(ownerID, entity);
+        return BankAccount.create(newOwner, accountType);
+    }
+    public static <E extends Person> BankAccount<E> create(Supplier<E> personSupplier, AccountType type){
+        return BankAccount.create(personSupplier.get(), type);
+    }
+
 }

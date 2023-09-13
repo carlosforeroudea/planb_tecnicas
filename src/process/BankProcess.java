@@ -1,6 +1,6 @@
 package process;
 
-import model.bank.Bank;
+import model.Bank;
 
 public class BankProcess {
     Bank bank;

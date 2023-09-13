@@ -1,4 +1,4 @@
-package model.bank;
+package model;
 
 import model.account.BankAccount;
 
@@ -24,4 +24,6 @@ public class Bank {
     protected BankAccount requestAccount(int accountID){
         return null;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package model.data;
+package model.util;
 
 import java.time.ZonedDateTime;
 import java.util.Locale;

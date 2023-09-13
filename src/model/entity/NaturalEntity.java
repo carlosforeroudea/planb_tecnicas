@@ -1,11 +1,11 @@
-package model.account.entity;
+package model.entity;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 import java.util.Objects;
 
-abstract public class NaturalEntity implements Person {
+public class NaturalEntity implements Person {
     private final int identification;
     private final Date birthDate;
 
@@ -13,6 +13,8 @@ abstract public class NaturalEntity implements Person {
     private String secondName;
     private String firstSurname;
     private String secondSurname;
+
+    private String address;
 
     NaturalEntity(int id){
         this.identification = id;
@@ -22,6 +24,8 @@ abstract public class NaturalEntity implements Person {
         this.secondName = "";
         this.firstSurname = "";
         this.secondSurname = "";
+
+        this.address = "";
     }
 
     @Override
@@ -79,4 +83,17 @@ abstract public class NaturalEntity implements Person {
         return result;
     }
 
+    @Override
+    public String getAddress() {
+        return this.address;
+    }
+
+    @Override
+    public String getLegalAddress() {
+        return "";
+    }
+    @Override
+    public String getSocialAddress() {
+        return "";
+    }
 }
