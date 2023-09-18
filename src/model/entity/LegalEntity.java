@@ -4,20 +4,33 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.Optional;
 
 public class LegalEntity implements Person{
     private final int ID;
     private final Date foundationDate;
 
     private String name;
+    private String email;
     private String address;
 
-    LegalEntity(int id){
+    public LegalEntity(int id, String name, Date foundationDate, int contactPhone, String emailAddress, String address){
         this.ID = id;
-        this.foundationDate = null;
+        this.foundationDate = foundationDate;
 
-        this.name = "";
-        this.address = "";
+        this.name = name;
+        this.email = emailAddress;
+        this.address = address;
+    }
+    public LegalEntity(int id, Date foundationDate, String emailAddress){
+        this(id, "", foundationDate, -1, emailAddress, "");
+    }
+    public LegalEntity(){
+        this(-1, null, "");
+    }
+
+    public <P extends Person> Optional<P> setBasicData(int id, Date birthDate, String emailAddress){
+        return Optional.of((P) new LegalEntity(id, birthDate, emailAddress));
     }
 
     @Override

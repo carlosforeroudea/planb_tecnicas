@@ -4,28 +4,45 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.Optional;
 
 public class NaturalEntity implements Person {
-    private final int identification;
-    private final Date birthDate;
+    protected final int identification;
+    protected final Date birthDate;
 
-    private String firstName;
-    private String secondName;
-    private String firstSurname;
-    private String secondSurname;
+    protected String firstName;
+    protected String secondName;
+    protected String firstSurname;
+    protected String secondSurname;
 
-    private String address;
+    protected int phoneNumber;
+    protected String email;
 
-    NaturalEntity(int id){
+    protected String address;
+
+    public NaturalEntity(int id, Date birthDate, int phoneNumber, String emailAddress){
         this.identification = id;
-        this.birthDate = null;
+        this.birthDate = birthDate;
 
         this.firstName = "";
         this.secondName = "";
         this.firstSurname = "";
         this.secondSurname = "";
 
+        this.phoneNumber = phoneNumber;
+        this.email = emailAddress;
+
         this.address = "";
+    }
+    public NaturalEntity(int id, Date birthDate, String emailAddress){
+        this(id, birthDate, -1, emailAddress);
+    }
+    public NaturalEntity(){
+        this(-1, null, "");
+    }
+
+    public <P extends Person> Optional<P> setBasicData(int id, Date birthDate, String emailAddress){
+        return Optional.of((P) new NaturalEntity(id, birthDate, emailAddress));
     }
 
     @Override

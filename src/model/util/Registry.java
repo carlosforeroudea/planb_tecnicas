@@ -2,21 +2,21 @@ package model.util;
 
 import java.time.ZonedDateTime;
 import java.util.Locale;
+import java.util.logging.Logger;
 
-public record Registry<InfoType, DataType, ExtraInfoType>(ZonedDateTime dateTime, Locale localization, InfoType i, DataType a, ExtraInfoType ex) {
+public record Registry<ActionType, InfoType, ExtraInfoType>(ZonedDateTime dateTime, Locale localization, ActionType action, InfoType reducedInfo, ExtraInfoType extraInfo) {
 
-    Registry(Locale localization, InfoType i, DataType a){
-        this(ZonedDateTime.now(), Locale.getDefault(), i, a, null);
+    public Registry(Locale localization, ActionType action, InfoType reducedInfo){
+        this(ZonedDateTime.now(), Locale.getDefault(), action, reducedInfo, null);
     }
-    Registry(Locale localization, InfoType i, DataType a, ExtraInfoType ex){
-        this(ZonedDateTime.now(), Locale.getDefault(), i, a, ex);
+    public Registry(Locale localization, ActionType action, InfoType reducedInfo, ExtraInfoType extraInfo){
+        this(ZonedDateTime.now(), Locale.getDefault(), action, reducedInfo, extraInfo);
     }
-    Registry(InfoType i, DataType a, ExtraInfoType ex){
-        this(ZonedDateTime.now(), Locale.getDefault(), i, a, ex);
+    public Registry(ActionType action, InfoType reducedInfo, ExtraInfoType extraInfo){
+        this(ZonedDateTime.now(), Locale.getDefault(), action, reducedInfo, extraInfo);
     }
-    Registry(InfoType i, DataType a){
-        this(ZonedDateTime.now(), Locale.getDefault(), i, a, null);
+    public Registry(ActionType action, InfoType reducedInfo){
+        this(ZonedDateTime.now(), Locale.getDefault(), action, reducedInfo, null);
     }
-
 
 }
