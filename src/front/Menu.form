@@ -21,11 +21,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cuentas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuAccountsActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuEmployees">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empleados"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuEmployeesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -36,18 +42,11 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuWithDrawal">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Retiro"/>
+                <Property name="text" type="java.lang.String" value="Retiro y consignaciones"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuDeposit">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Depositos"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuBalance">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Consulta saldo"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuWithDrawalActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -60,11 +59,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Acerca de"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuBank">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Compa&#xf1;ia"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuAboutActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -117,12 +114,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="641" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1114" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="397" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="719" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

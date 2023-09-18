@@ -34,11 +34,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuEmployees = new javax.swing.JMenuItem();
         jMenuTransacciones = new javax.swing.JMenu();
         jMenuWithDrawal = new javax.swing.JMenuItem();
-        jMenuDeposit = new javax.swing.JMenuItem();
-        jMenuBalance = new javax.swing.JMenuItem();
         jMenuGeneral = new javax.swing.JMenu();
         jMenuAbout = new javax.swing.JMenuItem();
-        jMenuBank = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,11 +43,11 @@ public class Menu extends javax.swing.JFrame {
         jDesktopMenu.setLayout(jDesktopMenuLayout);
         jDesktopMenuLayout.setHorizontalGroup(
             jDesktopMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 641, Short.MAX_VALUE)
+            .addGap(0, 1114, Short.MAX_VALUE)
         );
         jDesktopMenuLayout.setVerticalGroup(
             jDesktopMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGap(0, 719, Short.MAX_VALUE)
         );
 
         jMenuMaestros.setText("Maestros");
@@ -64,33 +61,44 @@ public class Menu extends javax.swing.JFrame {
         jMenuMaestros.add(jMenuClients);
 
         jMenuAccounts.setText("Cuentas");
+        jMenuAccounts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAccountsActionPerformed(evt);
+            }
+        });
         jMenuMaestros.add(jMenuAccounts);
 
         jMenuEmployees.setText("Empleados");
+        jMenuEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEmployeesActionPerformed(evt);
+            }
+        });
         jMenuMaestros.add(jMenuEmployees);
 
         jMenuMenu.add(jMenuMaestros);
 
         jMenuTransacciones.setText("Transacciones");
 
-        jMenuWithDrawal.setText("Retiro");
+        jMenuWithDrawal.setText("Retiro y consignaciones");
+        jMenuWithDrawal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuWithDrawalActionPerformed(evt);
+            }
+        });
         jMenuTransacciones.add(jMenuWithDrawal);
-
-        jMenuDeposit.setText("Depositos");
-        jMenuTransacciones.add(jMenuDeposit);
-
-        jMenuBalance.setText("Consulta saldo");
-        jMenuTransacciones.add(jMenuBalance);
 
         jMenuMenu.add(jMenuTransacciones);
 
         jMenuGeneral.setText("General");
 
         jMenuAbout.setText("Acerca de");
+        jMenuAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAboutActionPerformed(evt);
+            }
+        });
         jMenuGeneral.add(jMenuAbout);
-
-        jMenuBank.setText("Compañia");
-        jMenuGeneral.add(jMenuBank);
 
         jMenuMenu.add(jMenuGeneral);
 
@@ -126,6 +134,46 @@ public class Menu extends javax.swing.JFrame {
         jDesktopMenu.add(clienteForm);
         
     }//GEN-LAST:event_jMenuClientsActionPerformed
+
+    private void jMenuAccountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAccountsActionPerformed
+        InternalAccount clienteForm = new InternalAccount();
+        clienteForm.setVisible(true);
+        clienteForm.setMaximizable(true);
+        clienteForm.setResizable(true);
+        clienteForm.setIconifiable(true);
+        clienteForm.setClosable(true);
+        jDesktopMenu.add(clienteForm);
+    }//GEN-LAST:event_jMenuAccountsActionPerformed
+
+    private void jMenuWithDrawalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuWithDrawalActionPerformed
+        InternalTransactions clienteForm = new InternalTransactions();
+        clienteForm.setVisible(true);
+        clienteForm.setMaximizable(true);
+        clienteForm.setResizable(true);
+        clienteForm.setIconifiable(true);
+        clienteForm.setClosable(true);
+        jDesktopMenu.add(clienteForm);
+    }//GEN-LAST:event_jMenuWithDrawalActionPerformed
+
+    private void jMenuEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEmployeesActionPerformed
+        InternalEmployee clienteForm = new InternalEmployee();
+        clienteForm.setVisible(true);
+        clienteForm.setMaximizable(true);
+        clienteForm.setResizable(true);
+        clienteForm.setIconifiable(true);
+        clienteForm.setClosable(true);
+        jDesktopMenu.add(clienteForm);
+    }//GEN-LAST:event_jMenuEmployeesActionPerformed
+
+    private void jMenuAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAboutActionPerformed
+        InternalAbout clienteForm = new InternalAbout();
+        clienteForm.setVisible(true);
+        clienteForm.setMaximizable(true);
+        clienteForm.setResizable(true);
+        clienteForm.setIconifiable(true);
+        clienteForm.setClosable(true);
+        jDesktopMenu.add(clienteForm);
+    }//GEN-LAST:event_jMenuAboutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,10 +214,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopMenu;
     private javax.swing.JMenuItem jMenuAbout;
     private javax.swing.JMenuItem jMenuAccounts;
-    private javax.swing.JMenuItem jMenuBalance;
-    private javax.swing.JMenuItem jMenuBank;
     private javax.swing.JMenuItem jMenuClients;
-    private javax.swing.JMenuItem jMenuDeposit;
     private javax.swing.JMenuItem jMenuEmployees;
     private javax.swing.JMenu jMenuGeneral;
     private javax.swing.JMenu jMenuMaestros;

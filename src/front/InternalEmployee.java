@@ -10,20 +10,20 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Client;
+import model.Employee;
 import process.BankProcess;
 
 /**
  *
  * @author carlosforero
  */
-public class InternalClient extends javax.swing.JInternalFrame {
+public class InternalEmployee extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form InternalClient
      */
-    public InternalClient() {
+    public InternalEmployee() {
         initComponents();
-        
         refresh();
     }
     private void refresh(){
@@ -37,9 +37,9 @@ public class InternalClient extends javax.swing.JInternalFrame {
     }
     private void writeJtable(){
         DefaultTableModel model = (DefaultTableModel) jTableClients.getModel();
-        HashMap<String,Client> clients = process.BankProcess.get_Clients();
-        for (Map.Entry<String, Client> entry : clients.entrySet()) {
-            model.addRow(new Object[]{entry.getValue().get_id(),entry.getValue().get_first_name(), entry.getValue().get_last_name(),entry.getValue().get_type().toString()});
+        HashMap<String,Employee> clients = process.BankProcess.get_Employee();
+        for (Map.Entry<String, Employee> entry : clients.entrySet()) {
+            model.addRow(new Object[]{entry.getValue().get_id(),entry.getValue().get_first_name(),entry.getValue().get_last_name(), entry.getValue().get_type(),entry.getValue().get_username()});
         }
         
         revalidate();
@@ -63,10 +63,14 @@ public class InternalClient extends javax.swing.JInternalFrame {
         jLabelAddType = new javax.swing.JLabel();
         Identification = new javax.swing.JLabel();
         jComboBoxType = new javax.swing.JComboBox<>();
+        jLabelAddLastName1 = new javax.swing.JLabel();
+        jTextFieldAddUserName = new javax.swing.JTextField();
+        jLabelAddFirstName1 = new javax.swing.JLabel();
+        jPassword = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableClients = new javax.swing.JTable();
 
-        jLabelAddFirstName.setText("Nombres");
+        jLabelAddFirstName.setText("Nombre");
 
         jButtonAdd.setText("Registrar");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -75,13 +79,17 @@ public class InternalClient extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabelAddLastName.setText("Apellidos");
+        jLabelAddLastName.setText("Apellido");
 
         jLabelAddType.setText("Tipo");
 
         Identification.setText("Identificación");
 
-        jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "personas naturales", "personas jurídicas" }));
+        jComboBoxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Taquilleros", "Jefe_de_sucursal", "Gerente" }));
+
+        jLabelAddLastName1.setText("Contraseña");
+
+        jLabelAddFirstName1.setText("Nombre de usuario");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -90,19 +98,34 @@ public class InternalClient extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelAddFirstName)
-                    .addComponent(jLabelAddLastName)
-                    .addComponent(jLabelAddType)
-                    .addComponent(Identification))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldAddLastName, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxType, 0, 284, Short.MAX_VALUE)
-                    .addComponent(jTextFieldAddFirstName)
-                    .addComponent(jTextFieldAddIdentification))
-                .addGap(31, 31, 31)
-                .addComponent(jButtonAdd)
-                .addGap(34, 34, 34))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Identification)
+                        .addGap(104, 104, 104)
+                        .addComponent(jTextFieldAddIdentification)
+                        .addGap(137, 137, 137))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelAddFirstName)
+                                    .addComponent(jLabelAddLastName))
+                                .addGap(134, 134, 134)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddLastName)
+                                    .addComponent(jTextFieldAddFirstName)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelAddFirstName1)
+                                    .addComponent(jLabelAddLastName1)
+                                    .addComponent(jLabelAddType))
+                                .addGap(70, 70, 70)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddUserName)
+                                    .addComponent(jPassword)
+                                    .addComponent(jComboBoxType, 0, 276, Short.MAX_VALUE))))
+                        .addGap(31, 31, 31)
+                        .addComponent(jButtonAdd)
+                        .addGap(34, 34, 34))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,22 +143,32 @@ public class InternalClient extends javax.swing.JInternalFrame {
                     .addComponent(jTextFieldAddLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAddLastName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAdd)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAddFirstName1)
+                            .addComponent(jTextFieldAddUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAddLastName1)
+                            .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAdd)
                     .addComponent(jLabelAddType))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jTableClients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Identificación", "Nombres", "Apellido", "Tipo"
+                "Identificación", "Nombres", "Apellidos", "Tipo", "Nombre de usuario"
             }
         ));
         jScrollPane1.setViewportView(jTableClients);
@@ -146,18 +179,18 @@ public class InternalClient extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -165,8 +198,9 @@ public class InternalClient extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        BankProcess.Create_client(jTextFieldAddIdentification.getText(), jTextFieldAddFirstName.getText(), jTextFieldAddLastName.getText(), jComboBoxType.getSelectedItem().toString()); 
-        JOptionPane.showMessageDialog(null, "Cliente creado correctamente");
+        
+        BankProcess.Create_employee(jTextFieldAddIdentification.getText(), jTextFieldAddFirstName.getText(), jTextFieldAddLastName.getText(), jComboBoxType.getSelectedItem().toString(),jTextFieldAddUserName.getText(),new String(jPassword.getPassword()));  
+        JOptionPane.showMessageDialog(null, "Empleado creado correctamente!");
         refresh();// TODO add your handling code here:
     }//GEN-LAST:event_jButtonAddActionPerformed
 
@@ -176,13 +210,17 @@ public class InternalClient extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JComboBox<String> jComboBoxType;
     private javax.swing.JLabel jLabelAddFirstName;
+    private javax.swing.JLabel jLabelAddFirstName1;
     private javax.swing.JLabel jLabelAddLastName;
+    private javax.swing.JLabel jLabelAddLastName1;
     private javax.swing.JLabel jLabelAddType;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPassword;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableClients;
     private javax.swing.JTextField jTextFieldAddFirstName;
     private javax.swing.JTextField jTextFieldAddIdentification;
     private javax.swing.JTextField jTextFieldAddLastName;
+    private javax.swing.JTextField jTextFieldAddUserName;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,11 +21,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="561" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane1" pref="623" max="32767" attributes="0"/>
+                  <Component id="jPanel1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -34,9 +34,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="277" max="-2" attributes="0"/>
-              <EmptySpace min="211" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="239" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,21 +50,44 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelAddFirstName" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAddLastName" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAddType" min="-2" max="-2" attributes="0"/>
-                      <Component id="Identification" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="Identification" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddIdentification" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelAddFirstName" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddLastName" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldAddLastName" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAddFirstName" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelAddFirstName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddLastName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddType" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldAddUserName" max="32767" attributes="0"/>
+                                      <Component id="jPassword" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxType" alignment="0" pref="276" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jTextFieldAddLastName" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jComboBoxType" alignment="1" pref="284" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAddFirstName" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAddIdentification" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -87,12 +110,26 @@
                       <Component id="jLabelAddLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButtonAdd" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelAddFirstName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAddUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelAddLastName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jComboBoxType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelAddType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,7 +137,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelAddFirstName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nombres"/>
+            <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAdd">
@@ -119,7 +156,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelAddLastName">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Apellidos"/>
+            <Property name="text" type="java.lang.String" value="Apellido"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelAddType">
@@ -135,15 +172,30 @@
         <Component class="javax.swing.JComboBox" name="jComboBoxType">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="personas naturales"/>
-                <StringItem index="1" value="personas jur&#xed;dicas"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Taquilleros"/>
+                <StringItem index="1" value="Jefe_de_sucursal"/>
+                <StringItem index="2" value="Gerente"/>
               </StringArray>
             </Property>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAddLastName1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddUserName">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAddFirstName1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre de usuario"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="jPassword">
         </Component>
       </SubComponents>
     </Container>
@@ -157,11 +209,12 @@
         <Component class="javax.swing.JTable" name="jTableClients">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
+              <Table columnCount="5" rowCount="4">
                 <Column editable="true" title="Identificaci&#xf3;n" type="java.lang.Object"/>
                 <Column editable="true" title="Nombres" type="java.lang.Object"/>
-                <Column editable="true" title="Apellido" type="java.lang.Object"/>
+                <Column editable="true" title="Apellidos" type="java.lang.Object"/>
                 <Column editable="true" title="Tipo" type="java.lang.Object"/>
+                <Column editable="true" title="Nombre de usuario" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
